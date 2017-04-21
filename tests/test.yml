@@ -1,0 +1,6 @@
+---
+- hosts: default
+  roles:
+  - role: ansible-jenkins-centos
+    jenkins_state: started
+    jenkins_enabled: yes
