@@ -1,29 +1,26 @@
-ansible-jenkins-centos
-======================
+# ansible-jenkins-centos
 
 ansible role to install Jenkins on CentOS
 
 https://galaxy.ansible.com/suzuki-shunsuke/jenkins-centos/
 
-Requirements
-------------
+## Requirements
 
 Nothing.
 
-Role Variables
---------------
+## Role Variables
 
-* jenkins_jdk: JDK yum package name. The default is "java-1.8.0-openjdk". If you don't want to install jdk by yum, set "no"
-* jenkins_state: jenkins service state. The default is "no", which means don't change jenkins service state.
-* jenins_enabled: Whether the service should start on boot. In default don't change jenkins service state.
+name | required | default | description
+--- | --- | --- | ---
+jenkins_jdk | no | java-1.8.0-openjdk | JDK yum package name. If you don't want to install jdk by yum, set "no"
+jenkins_state | no | | jenkins service state. The default is "no", which means don't change jenkins service state
+jenins_enabled | no | | Whether the service should start on boot. By default don't change jenkins service state
 
-Dependencies
-------------
+## Dependencies
 
 Nothing.
 
-Example Playbook
-----------------
+## Example Playbook
 
 ```yaml
 - hosts: servers
@@ -32,9 +29,9 @@ Example Playbook
     jenkins_jdk: no
     jenkins_state: started
     jenkins_enabled: yes
+    become: yes
 ```
 
-License
--------
+## License
 
-MIT
+[MIT](LICENSE)

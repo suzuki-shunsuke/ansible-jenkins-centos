@@ -5,31 +5,25 @@
   yum:
     name: "{{ jenkins_jdk }}"
     update_cache: yes
-  become: "{{ jenkins_nonroot }}"
   when: jenkins_jdk != "no" and jenkins_jdk
 - name: Add repository
   get_url:
     url: http://pkg.jenkins-ci.org/redhat/jenkins.repo
     dest: /etc/yum.repos.d/jenkins.repo
-  become: "{{ jenkins_nonroot }}"
 - name: Add jenkins-ci.org.key
   rpm_key:
     key: https://jenkins-ci.org/redhat/jenkins-ci.org.key
-  become: "{{ jenkins_nonroot }}"
 - name: Install jenkins
   yum:
     name: jenkins
     update_cache: yes
-  become: "{{ jenkins_nonroot }}"
 - name: Change jenkins state
   service:
     name: jenkins
     state: "{{ jenkins_state }}"
-  become: "{{ jenkins_nonroot }}"
   when: jenkins_state != "no" and jenkins_state
 - name: Change whether the service should start on boot
   service:
     name: jenkins
     enabled: "{{ jenkins_enabled }}"
-  become: "{{ jenkins_nonroot }}"
   when: jenkins_enabled != "default"
