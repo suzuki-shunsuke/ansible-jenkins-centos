@@ -32,6 +32,10 @@ Nothing.
     become: yes
 ```
 
+## Change Log
+
+See [CHANGELOG.md](CHANGELOG.md).
+
 ## License
 
 [MIT](LICENSE)
