@@ -1,2 +1,14 @@
+# ansible
 *.retry
+
+# vagrant
 .vagrant
+
+# Node.js
+node_modules
+
+# common
+**/*.log
+
+# mac
+.DS_Store
