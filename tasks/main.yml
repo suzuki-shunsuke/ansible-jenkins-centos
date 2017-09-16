@@ -17,6 +17,26 @@
   yum:
     name: jenkins
     update_cache: yes
+
+- name: set JENKINS_PORT
+  lineinfile:
+    path: /etc/sysconfig/jenkins
+    regexp: "^JENKINS_PORT="
+    line: 'JENKINS_PORT="{{jenkins_port}}"'
+  when: jenkins_port is defined
+- name: set JENKINS_LISTEN_ADDRESS
+  lineinfile:
+    path: /etc/sysconfig/jenkins
+    regexp: "^JENKINS_LISTEN_ADDRESS="
+    line: 'JENKINS_LISTEN_ADDRESS="{{jenkins_listen_address}}"'
+  when: jenkins_listen_address is defined
+- name: set JENKINS_ARGS
+  lineinfile:
+    path: /etc/sysconfig/jenkins
+    regexp: "^JENKINS_ARGS="
+    line: 'JENKINS_ARGS="{{jenkins_args}}"'
+  when: jenkins_args is defined
+
 - name: Change jenkins state
   service:
     name: jenkins
