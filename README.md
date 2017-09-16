@@ -13,8 +13,8 @@ Nothing.
 name | required | default | description
 --- | --- | --- | ---
 jenkins_jdk | no | java-1.8.0-openjdk | JDK yum package name. If you don't want to install jdk by yum, set "no"
-jenkins_state | no | | jenkins service state. The default is "no", which means don't change jenkins service state
-jenins_enabled | no | | Whether the service should start on boot. By default don't change jenkins service state
+jenkins_state | no | | jenkins service state. By default the service restarts if any results of tasks are "changed". If the value is "not restarted", the service doesn't restart
+jenins_enabled | no | | Whether the service should start on boot. By default don't change the setting
 jenins_port | no | | `JENKINS_PORT` in `/etc/sysconfig/jenkins`
 jenkins_listen_address | no | | `JENKINS_LISTEN_ADDRESS` in `/etc/sysconfig/jenkins`
 jenkins_args | no | | `JENKINS_ARGS` in `/etc/sysconfig/jenkins`
